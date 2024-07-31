@@ -1,0 +1,91 @@
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif; /* Apply the modern font */
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    background-color: #7934DF;
+    padding: 0 20px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    color: #fff;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.logo img {
+    width: 50px; /* Adjust width here */
+    height: auto; /* Maintain aspect ratio */
+    margin-right: 10px; /* Space between logo image and text */
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links li {
+    display: inline;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1em;
+    font-weight: 400; /* Use regular font weight */
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #f0a500;
+    font-weight: 700; /* Make font bold on hover */
+}
+
+.burger {
+    display: none;
+    cursor: pointer;
+}
+
+.burger div {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin: 5px;
+    transition: all 0.3s ease;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        background-color: #333;
+    }
+
+    .nav-links li {
+        text-align: center;
+        padding: 10px 0;
+        width: 100%;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .burger {
+        display: block;
+    }
+}

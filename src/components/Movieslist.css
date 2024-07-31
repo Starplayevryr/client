@@ -1,0 +1,35 @@
+/* Movieslist.css */
+
+body h1{
+   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.Movies {
+  padding: 20px;
+}
+
+.Movies ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap; /* Allows wrapping to the next line */
+  gap: 20px; /* Space between cards */
+}
+
+.Movies li {
+  width: 200px; /* Fixed width for each card */
+  border: 1px solid #ddd; /* Optional border for better visibility */
+  border-radius: 8px; /* Rounded corners */
+  overflow: hidden; /* Hide overflow */
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional shadow */
+}
+
+.Movies img {
+  width: 100%; /* Fill the width of the card */
+  height: 150px; /* Fixed height for images */
+  object-fit: cover; /* Maintain aspect ratio */
+}
+
+.Movies h2, .Movies p {
+  margin: 10px; /* Spacing within the card */
+}

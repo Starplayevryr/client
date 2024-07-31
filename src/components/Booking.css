@@ -1,0 +1,111 @@
+/* Styles for the image */
+#Banner {
+    max-width: 400px;  /* Adjust as needed */
+    height: auto;     /* Maintain aspect ratio */
+    margin-right: 50px; /* Space between image and card */
+    border: 5px solid gold;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent background */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Container for image and card */
+.image-card-container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+h5{
+    font-weight: bolder;
+}
+/* Styles for the card */
+.card1 {
+    background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent background */
+    border: solid goldenrod;
+    justify-content: center;
+    color: #7934DF;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 0;
+    margin-left: 100px;
+    max-width: 400px; /* Ensure card doesn't exceed this width */
+    width: 100%; /* Make card full width within its container */
+    padding: 15px;
+    border-radius: 5px; /* Optional: rounded corners */
+}
+
+/* Styles for card title */
+.card-title {
+    color: goldenrod;
+    font-size: 1.5rem; /* Adjust font size as needed */
+}
+
+/* Styles for star rating */
+.star-rating {
+    font-size: 1.2rem; /* Adjust font size for stars */
+    color: gold;
+    
+}
+
+.star {
+    display: inline-block;
+    font-size: 1.5rem; /* Size of the stars */
+}
+
+.star.full {
+    color: gold;
+}
+
+.star.half {
+    position: relative;
+}
+
+.star.half::after {
+    content: '★';
+    position: absolute;
+    color: gray;
+    width: 50%;
+    overflow: hidden;
+}
+
+.star.empty {
+    color: gray;
+}
+.star-rating h6{
+    font-weight: bolder;
+
+}
+#but{
+    position: relative;
+       left: 45px;
+       background-color: #7934DF;
+
+}
+/* Media Queries for responsive design */
+@media (max-width: 768px) {
+    #Banner {
+        max-width: 100%;
+        margin-right: 20px;
+    }
+
+    .image-card-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        max-width: 100%;
+        width: auto;
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    #Banner {
+        margin-right: 0;
+    }
+
+    .card {
+        margin-top: 15px;
+    }
+}
