@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import './Movieslist.css';
+import './Movieslist.css'; // Make sure this path is correct
 import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/js/bootstrap.min.js';
 import CarouselPage from './CarouselPage';
 import Header from './Header';
-
 const Movieslist = () => {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -31,8 +29,8 @@ const Movieslist = () => {
 
   return (
     <>
-      <Header />
-      <CarouselPage />
+    <Header/>
+    <CarouselPage/>
       <div className="container">
         <h1 className="my-4">Editor's Pick</h1>
         <div className="row">
@@ -43,10 +41,11 @@ const Movieslist = () => {
                   src={movie.poster_path} // Assuming this path is directly accessible
                   className="card-img-top"
                   alt={movie.title}
-                  style={{ height: '400px', objectFit: 'cover' }} // Adjust styles as needed
                 />
                 <div className="card-body">
                   <h5 className="card-title">{movie.title}</h5>
+                  <p className="release-date">Release_date:{movie.release_date}</p>
+                  <p className="description">Overview:{movie.overview}</p>
                 </div>
               </div>
             </div>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom'; // Import Link from react-router-dom
-import './Header.css'; // Ensure the CSS file is imported
+import { Link } from 'react-router-dom';
+import './Header.css';
 
 const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -10,18 +10,17 @@ const Header = () => {
     };
 
     return (
-        <nav className="navbar">
+        <nav className="navbar1">
             <div className="logo">
-                <img src="/images/ecube.png" alt="Logo" />
-                E-Cube
+                <img src="/images/Ecube1.png" alt="Logo" className="logo-img" /> {/* Use a class for the logo image */}
             </div>
             <ul className={`nav-links ${isOpen ? 'active' : ''}`}>
                 <li><Link to="/">Home</Link></li>
+                <li><Link to="/MoviesList">Movies</Link></li>
                 <li><Link to="/Trailers">Watch Trailers</Link></li>
                 <li><Link to="/LatestMovies">What’s Hot Now</Link></li>
                 <li><Link to="/Upcoming">Upcoming</Link></li>
                 <li><Link to="/Events">Events</Link></li>
-                
             </ul>
             <div className="burger" onClick={handleToggle}>
                 <div className="line1"></div>

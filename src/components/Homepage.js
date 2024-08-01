@@ -2,7 +2,6 @@ import React from 'react';
 import { Navbar, Nav, Button, Container } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate hook
 import './Homepage.css'; // Ensure you create this CSS file for custom styles
-import './Footer.css'; // Import the CSS file for footer styling
 
 const HomePage = () => {
     const navigate = useNavigate(); // Initialize useNavigate
@@ -13,9 +12,12 @@ const HomePage = () => {
 
     return (
         <>
-            <Navbar bg="dark" variant="dark" expand="lg" className="navbar-fixed">
+            <Navbar bg="dark" variant="dark" expand="lg" className="navbar-fixed" id="nav1">
                 <Container>
-                    <Navbar.Brand href="#home">E-Cube</Navbar.Brand>
+                    <Navbar.Brand href="#home" className="navbar-brand">
+                        <img src="/images/Ecube1.png" alt="Logo" className="logo-img" /> {/* Logo Image */}
+                        ECube
+                    </Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="mr-auto">
@@ -29,15 +31,18 @@ const HomePage = () => {
             </Navbar>
 
             <div className="hero-section" style={{ backgroundImage: 'url(/images/ju.jpg)' }}>
+            
                 <div className="hero-text">
-                    <h1>Welcome to E-Cube</h1>
-                    <p>Discover the latest movies and events.</p>
+                    <img src='/images/Ecube1.png'></img>
+                    <h1>Welcome to ECube</h1>
+                    <p>Discover, Watch, Repeat Your Movie Adventure Awaits!</p>
                 </div>
             </div>
 
             <div className="hero-section" id="features" style={{ backgroundImage: 'url(/images/leohome.jpg)' }}>
                 <div className="hero-text">
-                    <h1>Explore Events</h1>
+                
+                    <h1> Explore Events</h1>
                     <p>Find upcoming events and book tickets effortlessly.</p>
                 </div>
             </div>
@@ -54,7 +59,7 @@ const HomePage = () => {
             </Button>
 
             {/* Footer Section */}
-            <footer className="footer">
+            <footer className="footer" id="contact">
                 <Container>
                     <div className="footer-content">
                         <div className="contact-info">

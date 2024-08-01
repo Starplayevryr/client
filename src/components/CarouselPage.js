@@ -6,9 +6,9 @@ function CarouselPage() {
   return (
     <>
     
-    <Carousel data-bs-theme="dark">
+    <Carousel data-bs-theme="dark" id="see">
       <Carousel.Item>
-        <img
+        <img id="sii"
           className="d-block w-100 carousel-image"
           src="/images/caro2.jpg"
           alt="First slide"
@@ -19,18 +19,18 @@ function CarouselPage() {
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
-        <img
+        <img id="sii"
           className="d-block w-100 carousel-image"
           src="/images/leo2.jpg"
           alt="Second slide"
         />
         <Carousel.Caption>
           <h5>Featured Movies</h5>
-          <p>Featured Film of the Week.</p>
+          <p>Explore the world of movies: Dive into our top picks.</p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
-        <img
+        <img id="sii"
           className="d-block w-100 carousel-image"
           src="/images/Doctor.webp"
           alt="Third slide"
