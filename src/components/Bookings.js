@@ -1,13 +1,23 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Container from 'react-bootstrap/Container';
 import Header from './Header';
+import { useDispatch } from 'react-redux';
+import { setTicketDetails } from '../slices/ticketSlice';
 import './Booking.css';
 
 const Bookings = () => {
     const { id } = useParams();
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
     const [movie, setMovie] = useState(null);
+    const [seats, setSeats] = useState(1);
+    const [date, setDate] = useState('');
+    const [time, setTime] = useState('');
+    const [showTimes] = useState([
+        '10:00 AM', '01:00 PM', '04:00 PM', '07:00 PM', '10:00 PM'
+    ]); // Predefined show timings
 
     useEffect(() => {
         const fetchMovieDetails = async () => {
@@ -42,6 +52,11 @@ const Bookings = () => {
         return stars;
     };
 
+    const handleBookingConfirmation = () => {
+        dispatch(setTicketDetails({ movie, seats, date, time }));
+        navigate(`/ticketdetails`);
+    };
+
     if (!movie) return <div>Loading...</div>;
 
     return (
@@ -57,19 +72,54 @@ const Bookings = () => {
                 />
                 <div className="card1">
                     <h5 className="card-title">{movie.title}</h5>
-                    <br></br>
                     <h6 className="card-subtitle">Release Date: {movie.release_date}</h6>
-                <br></br>
                     <h6 className="card-subtitle">Popularity: {movie.popularity}</h6>
-                    <br></br>
-                    <i>
-                    <p className="card-text">{movie.overview}</p></i>
-                    <br></br>
+                    <p className="card-text">{movie.overview}</p>
                     <div className="star-rating">
                         <h6>What Viewers are Saying: {renderStars(movie.vote_average)}</h6>
                     </div>
-                    <br></br>
-                    <button type="button" id="but" className="btn btn-primary">
+
+                    <div className="form-group">
+                        <label htmlFor="seats">Number of Seats:</label>
+                        <input
+                            type="number"
+                            id="seats"
+                            className="form-control"
+                            min="1"
+                            value={seats}
+                            onChange={(e) => setSeats(e.target.value)}
+                        />
+                    </div>
+
+                    <div className="form-group">
+                        <label htmlFor="date">Date:</label>
+                        <input
+                            type="date"
+                            id="date"
+                            className="form-control"
+                            value={date}
+                            onChange={(e) => setDate(e.target.value)}
+                        />
+                    </div>
+
+                    <div className="form-group">
+                        <label htmlFor="time">Show Time:</label>
+                        <select
+                            id="time"
+                            className="form-control"
+                            value={time}
+                            onChange={(e) => setTime(e.target.value)}
+                        >
+                            <option value="">Select a time</option>
+                            {showTimes.map((showTime, index) => (
+                                <option key={index} value={showTime}>
+                                    {showTime}
+                                </option>
+                            ))}
+                        </select>
+                    </div>
+
+                    <button type="button" id="but" className="btn btn-primary" onClick={handleBookingConfirmation}>
                         Confirm Booking
                     </button>
                 </div>
